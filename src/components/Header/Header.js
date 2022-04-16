@@ -2,25 +2,23 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CustomLink from "../CustomLink/CustomLink";
-
+import "./Header.css";
 const Header = () => {
   return (
     <header>
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            <span>TUTOR</span>
+            <span>PLUS</span>
+          </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <CustomLink className="nav-link" to="/">
-                Home
-              </CustomLink>
-              <CustomLink className="nav-link" to="/about">
-                About
-              </CustomLink>
-              <CustomLink className="nav-link" to="/blog">
-                Blog
-              </CustomLink>
+              <CustomLink to="/">Home</CustomLink>
+              <CustomLink to="/about">About</CustomLink>
+              <CustomLink to="/blog">Blog</CustomLink>
             </Nav>
           </Navbar.Collapse>
         </Container>

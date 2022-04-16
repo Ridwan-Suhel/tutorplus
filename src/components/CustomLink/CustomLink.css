@@ -1,0 +1,17 @@
+.navbar-nav {
+  gap: 25px;
+}
+
+.nav-link {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #9b9b9b;
+  text-transform: uppercase;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 0.3rem;
+  padding-left: 0.3rem;
+}
+.activeLink {
+  color: #000;
+}
