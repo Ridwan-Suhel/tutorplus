@@ -1,0 +1,23 @@
+[
+  {
+    "id": "625adc73d5e9d18f2cdac32d",
+    "image": "https://i.ibb.co/HxzxSBx/service-1.png",
+    "price": 120,
+    "name": "Online Tutoring",
+    "description": "Online tutoring is a internet base teaching. Where I will teach by using Zoom or Google meet conferencing service. This is more handy we can meet from any where from the world."
+  },
+  {
+    "id": "625adc737be7f1f61e45baef",
+    "image": "https://i.ibb.co/vDgCs3r/service-2.png",
+    "price": 150,
+    "name": "One o One Home Tutoring",
+    "description": "One o One home tutoring is a home base teaching process. Where I will go to your home and teach you directly. This is most efficient if you are base on Dhaka city only."
+  },
+  {
+    "id": "625adc734de5bac3e1ee606f",
+    "image": "https://i.ibb.co/f14wmWc/service-3.png",
+    "price": 100,
+    "name": "Offline Batch Tutoring",
+    "description": "Offline batch tutoring is a common teaching process. Where you can  make some friends you can also share your knowledge with othrs and more fun while learning so book now your seat."
+  }
+]
