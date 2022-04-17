@@ -10,22 +10,24 @@ const SingleService = ({ service }) => {
     navigate("/checkout");
   };
   return (
-    <Card className="border-0 single-card">
-      <Card.Img variant="top" src={image} />
-      <Card.Body>
-        <Card.Title>➖ {name}</Card.Title>
-        <Card.Text className="lead">{description}</Card.Text>
-        <p className="price fw-bold lead">
-          <strong>
-            ${price}
-            <sub>/MO</sub>
-          </strong>
-        </p>
-        <Button variant="dark" className="px-4" onClick={navigateCheckout}>
-          Check out now
-        </Button>
-      </Card.Body>
-    </Card>
+    <div className="col">
+      <Card className="border-0 single-card">
+        <Card.Img variant="top" src={image} />
+        <Card.Body>
+          <Card.Title>➖ {name}</Card.Title>
+          <Card.Text className="lead">{description}</Card.Text>
+          <p className="price fw-bold lead">
+            <strong>
+              ${price}
+              <sub>/MO</sub>
+            </strong>
+          </p>
+          <Button variant="dark" className="px-4" onClick={navigateCheckout}>
+            Check out now
+          </Button>
+        </Card.Body>
+      </Card>
+    </div>
   );
 };
 

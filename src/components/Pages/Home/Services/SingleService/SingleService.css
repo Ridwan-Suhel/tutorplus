@@ -11,3 +11,9 @@
 .card-title {
   color: #333;
 }
+@media (max-width: 992px) {
+  .card-group .single-card {
+    width: 50%;
+    display: block;
+  }
+}

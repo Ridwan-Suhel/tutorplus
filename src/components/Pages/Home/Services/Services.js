@@ -16,11 +16,11 @@ const Services = () => {
       <div className="container">
         <h2 className="">Check my services</h2>
         <div className="service-wrapper py-5 my-4">
-          <CardGroup className="gap-4">
+          <div className="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
             {services.map((service) => (
               <SingleService key={service.id} service={service}></SingleService>
             ))}
-          </CardGroup>
+          </div>
         </div>
       </div>
     </section>
