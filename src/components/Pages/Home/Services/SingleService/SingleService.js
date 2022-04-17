@@ -22,8 +22,12 @@ const SingleService = ({ service }) => {
               <sub>/MO</sub>
             </strong>
           </p>
-          <Button variant="dark" className="px-4" onClick={navigateCheckout}>
-            Check out now
+          <Button
+            variant="dark"
+            className="px-4 checkout-btn"
+            onClick={navigateCheckout}
+          >
+            <span>Check out now</span> <span>✈</span>
           </Button>
         </Card.Body>
       </Card>
