@@ -5,10 +5,10 @@ const Banner = () => {
   return (
     <div className="container px-4">
       <div className="row banner">
-        <div className="col-lg-6 border border-2 border-secondary gx-0">
+        <div className="banner-img-area col-lg-6 border border-2 border-dark gx-0 ">
           <img src={bannerImg} alt="bannerImg" className="img-fluid" />
         </div>
-        <div className="col-lg-6 border border-start-0 border-2 border-secondary d-flex align-items-center justify-content-center text-center">
+        <div className="banner-content-area col-lg-6 border border-start-0 border-2 border-dark d-flex align-items-center justify-content-center text-center">
           <div className="bannerTxt">
             <h1>Learn With Fun</h1>
             <p className="lead">
@@ -16,7 +16,7 @@ const Banner = () => {
               Tutor plus is the one-stop solution for every 1 to 12-grade
               student.
             </p>
-            <button className="btn btn-dark px-5 py-2">Book Now</button>
+            <button className="btn btn-dark px-5 py-2">Learn More</button>
           </div>
         </div>
 

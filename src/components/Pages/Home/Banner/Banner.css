@@ -1,0 +1,26 @@
+.banner {
+}
+.banner .banner-img-area {
+}
+.banner .banner-content-area {
+}
+@media (max-width: 992px) {
+  .banner .banner-img-area {
+    border-bottom-width: 0px !important;
+  }
+  .banner .banner-img-area img {
+    width: 100%;
+  }
+
+  .banner .banner-content-area {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    border-left: 2px solid #212529 !important;
+  }
+}
+@media (max-width: 576px) {
+  .banner .banner-content-area {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
