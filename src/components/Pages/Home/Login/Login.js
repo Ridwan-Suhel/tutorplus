@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import auth from "../../../../firebase.init";
 import "./Login.css";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+
+  const formSubmit = (event) => {
+    event.preventDefault();
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    signInWithEmailAndPassword(email, password);
+  };
+
+  useEffect(() => {
+    if (user) {
+      Navigate("/");
+    }
+  }, [user]);
+
   return (
     <section className="section">
       <div className="container">
@@ -11,7 +34,7 @@ const Login = () => {
           <div className="col-md-7 col-lg-6">
             <div className="form-wrapper my-5">
               <p className="lead fw-bold">Please Login</p>
-              <Form>
+              <Form onSubmit={formSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control type="email" placeholder="Enter email" />
