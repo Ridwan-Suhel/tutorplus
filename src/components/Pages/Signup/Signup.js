@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import AuthSocial from "../Shared/AuthSocial/AuthSocial";
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -63,6 +64,10 @@ const Signup = () => {
                   Signup
                 </Button>
               </Form>
+              <div className="text-center or-line">
+                <span>Or</span>
+              </div>
+              <AuthSocial></AuthSocial>
             </div>
           </div>
         </div>

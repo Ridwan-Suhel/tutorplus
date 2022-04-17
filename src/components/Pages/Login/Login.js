@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../../../../firebase.init";
+import auth from "../../../firebase.init";
 import "./Login.css";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import AuthSocial from "../Shared/AuthSocial/AuthSocial";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -63,6 +64,10 @@ const Login = () => {
                   Login
                 </Button>
               </Form>
+              <div className="text-center or-line">
+                <span>Or</span>
+              </div>
+              <AuthSocial></AuthSocial>
             </div>
           </div>
         </div>

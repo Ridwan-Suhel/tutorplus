@@ -1,0 +1,43 @@
+.form-wrapper {
+  background: #f7fbff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+/* .section {
+  height: 450px;
+} */
+.or-line {
+  margin: 15px 0px;
+}
+.or-line span {
+  position: relative;
+  display: block;
+}
+.or-line span:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+  width: 47%;
+  height: 1px;
+  background: rgb(212, 210, 210);
+}
+.or-line span:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px;
+  width: 47%;
+  height: 1px;
+  background: rgb(212, 210, 210);
+}
+.auth-btn {
+  font-size: 18px;
+  width: 70%;
+  border-radius: 25px;
+}
