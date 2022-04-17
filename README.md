@@ -1,6 +1,6 @@
 # TUTORPLUS
 
-This is a react base web app of a Independent-service-provider [Click here to see demo](https://github.com/facebook/create-react-app).
+This is a react base web app of a Independent-service-provider [Click here to see demo](https://tutorplus-5456d.web.app/).
 
 ## What is the website's different features and functionality?
 
