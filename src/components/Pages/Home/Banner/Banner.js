@@ -16,7 +16,7 @@ const Banner = () => {
               Tutor plus is the one-stop solution for every 1 to 12-grade
               student.
             </p>
-            <button className="btn btn-dark px-5">Book Now</button>
+            <button className="btn btn-dark px-5 py-2">Book Now</button>
           </div>
         </div>
 
