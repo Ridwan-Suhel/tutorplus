@@ -6,6 +6,9 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import AuthSocial from "../Shared/AuthSocial/AuthSocial";
 import Loading from "../Shared/Loading/Loading";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -27,7 +30,28 @@ const Signup = () => {
     if (user) {
       navigate("/");
     }
-  }, [user]);
+    if (error?.message?.includes("invalid-email")) {
+      toast("Invalid Email.");
+    }
+    if (error?.message?.includes("email-already-in-use")) {
+      toast("Email already exist.");
+    }
+    if (error?.message?.includes("weak-password")) {
+      toast("weak-password.");
+    }
+
+    if (error) {
+      console.log(error.message);
+      // invalid-email
+    }
+  }, [user, error]);
+
+  let errMsg = "";
+  if (error?.message?.includes("weak-password")) {
+    errMsg = "✖ Password must contain 6 Charecters.";
+  } else {
+    errMsg = "";
+  }
 
   if (loading) {
     return <Loading></Loading>;
@@ -64,6 +88,8 @@ const Signup = () => {
                     required
                   />
                 </Form.Group>
+                <p className="lead text-danger">{errMsg}</p>
+
                 <p className="lead">
                   Already have an account? <Link to="/login">Signin Here</Link>
                 </p>
@@ -75,6 +101,7 @@ const Signup = () => {
                 <span>Or</span>
               </div>
               <AuthSocial></AuthSocial>
+              <ToastContainer />
             </div>
           </div>
         </div>
