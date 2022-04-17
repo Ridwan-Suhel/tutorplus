@@ -3,17 +3,23 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../../firebase.init";
 import gglIcon from "../../../../images/google-icon.png";
+import Loading from "../Loading/Loading";
 const AuthSocial = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const handleGglSignin = () => {
     signInWithGoogle();
   };
   const navigate = useNavigate();
+
   useEffect(() => {
     if (user) {
       navigate("/");
     }
   }, [user]);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="mb-3 text-center d-flex justify-content-center">
       <button

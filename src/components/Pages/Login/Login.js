@@ -5,6 +5,7 @@ import auth from "../../../firebase.init";
 import "./Login.css";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import AuthSocial from "../Shared/AuthSocial/AuthSocial";
+import Loading from "../Shared/Loading/Loading";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -32,6 +33,10 @@ const Login = () => {
       navigate(from, { replace: true });
     }
   }, [user]);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <section className="section">
