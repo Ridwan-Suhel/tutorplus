@@ -36,8 +36,9 @@
   height: 1px;
   background: rgb(212, 210, 210);
 }
-.auth-btn {
-  font-size: 18px;
-  width: 70%;
-  border-radius: 25px;
+@media (max-width: 576px) {
+  .form-wrapper {
+    background: #f7fbff;
+    padding: 15px 12px;
+  }
 }

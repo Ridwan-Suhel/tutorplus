@@ -10,6 +10,9 @@ import {
 import AuthSocial from "../Shared/AuthSocial/AuthSocial";
 import Loading from "../Shared/Loading/Loading";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -37,16 +40,29 @@ const Login = () => {
     if (user) {
       navigate(from, { replace: true });
     }
-  }, [user]);
+    if (error?.message?.includes("user-not-found")) {
+      toast("Oops! User Not found.");
+    }
+    if (error?.message?.includes("wrong-password")) {
+      toast("Password is wrong.");
+    }
+    if (error?.message?.includes("Access to this account")) {
+      toast(error.message);
+    }
+  }, [user, error]);
 
-  if (loading) {
+  if (loading || sending) {
     return <Loading></Loading>;
   }
 
   const resetPassword = async () => {
     const email = emailRef.current.value;
-    await sendPasswordResetEmail(email);
-    alert("Sent email");
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email");
+    } else {
+      toast("Enter your email first.");
+    }
   };
 
   return (
@@ -63,6 +79,7 @@ const Login = () => {
                     ref={emailRef}
                     type="email"
                     placeholder="Enter email"
+                    required
                   />
                 </Form.Group>
 
@@ -72,6 +89,7 @@ const Login = () => {
                     ref={passwordRef}
                     type="password"
                     placeholder="Password"
+                    required
                   />
                 </Form.Group>
 
@@ -92,6 +110,7 @@ const Login = () => {
               <p className="lead">
                 Don't have an account? <Link to="/signup">Signup Here</Link>
               </p>
+              <ToastContainer />
             </div>
           </div>
         </div>

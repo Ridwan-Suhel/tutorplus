@@ -42,7 +42,7 @@ const Signup = () => {
               <Form onSubmit={formSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                   <Form.Label>Your name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter name" />
+                  <Form.Control type="text" placeholder="Enter name" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -51,6 +51,7 @@ const Signup = () => {
                     ref={emailRef}
                     type="email"
                     placeholder="Enter email"
+                    required
                   />
                 </Form.Group>
 
@@ -60,6 +61,7 @@ const Signup = () => {
                     ref={passwordRef}
                     type="password"
                     placeholder="Password"
+                    required
                   />
                 </Form.Group>
                 <p className="lead">

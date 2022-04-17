@@ -1,0 +1,14 @@
+.auth-btn {
+  font-size: 18px;
+  width: 70%;
+}
+@media (max-width: 576px) {
+  .auth-btn {
+    width: 90%;
+  }
+}
+@media (max-width: 343px) {
+  .auth-btn {
+    width: 100%;
+  }
+}
