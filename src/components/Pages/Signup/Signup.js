@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 const Signup = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+
+  const formSubmit = (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    createUserWithEmailAndPassword(email, password);
+  };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
   return (
     <section className="section">
       <div className="container">
@@ -10,7 +33,7 @@ const Signup = () => {
           <div className="col-md-7 col-lg-6">
             <div className="form-wrapper my-5">
               <p className="lead fw-bold">Please Signup</p>
-              <Form>
+              <Form onSubmit={formSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                   <Form.Label>Your name</Form.Label>
                   <Form.Control type="text" placeholder="Enter name" />
@@ -18,12 +41,20 @@ const Signup = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control
+                    ref={emailRef}
+                    type="email"
+                    placeholder="Enter email"
+                  />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control
+                    ref={passwordRef}
+                    type="password"
+                    placeholder="Password"
+                  />
                 </Form.Group>
                 <p className="lead">
                   Already have an account? <Link to="/login">Signin Here</Link>
