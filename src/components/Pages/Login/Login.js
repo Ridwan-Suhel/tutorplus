@@ -3,13 +3,18 @@ import { Button, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import "./Login.css";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import AuthSocial from "../Shared/AuthSocial/AuthSocial";
 import Loading from "../Shared/Loading/Loading";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, resetPassError] =
+    useSendPasswordResetEmail(auth);
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -38,6 +43,12 @@ const Login = () => {
     return <Loading></Loading>;
   }
 
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    alert("Sent email");
+  };
+
   return (
     <section className="section">
       <div className="container">
@@ -63,11 +74,12 @@ const Login = () => {
                     placeholder="Password"
                   />
                 </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group> */}
+
                 <p className="lead">
-                  Don't have an account? <Link to="/signup">Signup Here</Link>
+                  Forget your password?{" "}
+                  <Link to="" onClick={resetPassword}>
+                    Reset password
+                  </Link>
                 </p>
                 <Button variant="dark" className="px-5 mt-2 py-2" type="submit">
                   Login
@@ -77,6 +89,9 @@ const Login = () => {
                 <span>Or</span>
               </div>
               <AuthSocial></AuthSocial>
+              <p className="lead">
+                Don't have an account? <Link to="/signup">Signup Here</Link>
+              </p>
             </div>
           </div>
         </div>
